@@ -64,6 +64,9 @@
                 </includes>
             </resource>
             <resource>
+                <directory>src/main/resources/gnu</directory>
+            </resource>
+            <resource>
                 <directory>src/main/java/EchoSimulationPackage/images</directory>
                 <includes>
                     <include>breakingVADicon.png</include>

@@ -25,11 +25,15 @@ public class MainControlGUI {
     public void create() {
         JLabel connecting = new JLabel("Connecting...");
         JButton cancel = new JButton("Cancel");
+        JButton retryConnection = new JButton("Retry Connection");
         cancel.setActionCommand("End Session");
         cancel.addActionListener(new ButtonListener());
+        retryConnection.setActionCommand("Retry");
+        retryConnection.addActionListener(new ButtonListener());
         JPanel panel = new JPanel();
 
         panel.add(connecting);
+        panel.add(retryConnection);
         panel.add(cancel);
         frame.getContentPane().add(panel);
 

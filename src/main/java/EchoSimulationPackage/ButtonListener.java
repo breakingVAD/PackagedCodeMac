@@ -16,6 +16,8 @@ public class ButtonListener implements ActionListener {
             MainControlGUI.close();
         } else if (command.equals("Refresh")) {
             MainControlGUI.refreshSavedCals();
+        } else if (command.equals("Retry")){
+            ProbeDetection.initializeSerial();
         }
     }
 }

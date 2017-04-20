@@ -51,7 +51,7 @@ public class SerialConnection {
         }
         if (portId == null) {
             System.out.println("Could not find COM port.");
-            JOptionPane.showMessageDialog( null,"Cannot connect to Arduino. Please restart program to try again.");
+            JOptionPane.showMessageDialog( null,"Cannot connect to Device. Please plug in device and retry connection.");
             return;
         }
 

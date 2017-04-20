@@ -22,6 +22,7 @@ class ProbeDetection {
     private static FirebaseDatabase database;
     private static HashMap<String, HashMap<String, ImagingRegion>> savedCals;
     private static LoginGUI loginGUI;
+    private static MainControlGUI mainControlGUI;
 
     public static void main(String[] args) {
         FirebaseOptions options;
@@ -54,11 +55,13 @@ class ProbeDetection {
 
 
         // Create a listener and controller
-        MainControlGUI mainControlGUI = new MainControlGUI();
+        mainControlGUI = new MainControlGUI();
         mainControlGUI.create();
 
-        serialConnection = new SerialConnection(mainControlGUI);
-        serialConnection.initialize();
+//        serialConnection = new SerialConnection(mainControlGUI);
+//        serialConnection.initialize();
+
+        initializeSerial();
 
         while (!endSession) {
             try {
@@ -72,6 +75,11 @@ class ProbeDetection {
     }
 
      // [Loaded gnu.io.CommPortIdentifier from file:/Library/Java/Extensions/RXTXcomm.jar]
+
+    static void initializeSerial(){
+        serialConnection = new SerialConnection(mainControlGUI);
+        serialConnection.initialize();
+    }
 
     static SerialConnection getSerialConnection() {
         return serialConnection;

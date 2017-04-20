@@ -25,6 +25,9 @@ class ProbeDetection {
     private static MainControlGUI mainControlGUI;
 
     public static void main(String[] args) {
+
+        String libPathProperty = System.getProperty("java.library.path");
+        System.out.println(libPathProperty);
         FirebaseOptions options;
         try {
             InputStream fileInputStream = ProbeDetection.class.getResourceAsStream("/breaking-vad-online-simulation-firebase-adminsdk-pn399-0fa8b48b27.json");

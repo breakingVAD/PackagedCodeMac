@@ -4,8 +4,10 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
@@ -25,7 +27,26 @@ class ProbeDetection {
     private static MainControlGUI mainControlGUI;
 
     public static void main(String[] args) {
-
+        String osType = System.getProperty("os.name");
+        System.out.println(osType);
+        char firstLetter = osType.charAt(0);
+        if (firstLetter == 'M'){
+            try {
+                NativeUtils.loadLibraryFromJar("/osx/librxtxSerial.jnilib");
+            } catch (IOException e) {
+                e.printStackTrace(); // This is probably not the best way to handle exception :-)
+            }
+        }
+        else if(firstLetter == 'W'){
+            try {
+                NativeUtils.loadLibraryFromJar("/windows/x86_64/libNRJavaSerial.dll");
+            } catch (IOException e) {
+                e.printStackTrace(); // This is probably not the best way to handle exception :-)
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"This application does not support your operating system, please try again with a different machine.");
+        }
         String libPathProperty = System.getProperty("java.library.path");
         System.out.println(libPathProperty);
         FirebaseOptions options;

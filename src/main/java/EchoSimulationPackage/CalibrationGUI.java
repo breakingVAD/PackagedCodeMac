@@ -12,7 +12,7 @@ public class CalibrationGUI {
     private static JTextField textField;
     private String[] positionNames = {"Parasternal (Long Axis)", "Parasternal (Short Axis)", "Apical (4 Chamber)", "Apical (2 Chamber)", "Subxiphoid (4 Chamber/Outlets)", "Suprasternal (Arch)"};
     private String[] positionSensors = {"Parasternal", "Parasternal", "Apical", "Apical", "Subxiphoid", "Suprasternal"};
-    private String[] sensorNames = {"Suprasternal", "Parasternal", "Subxiphoid", "Apical"};
+    private String[] sensorNames = {"Suprasternal", "Parasternal", "Apical","Subxiphoid"};
     private JPanel panel_1;
     private JProgressBar progressBar;
     private JButton btnFinishCalibration;
